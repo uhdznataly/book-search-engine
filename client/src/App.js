@@ -4,7 +4,7 @@ import SearchBooks from './pages/SearchBooks';
 import SavedBooks from './pages/SavedBooks';
 import Navbar from './components/Navbar';
 
-//import Apollo client
+//importing the apollo client
 import {
   ApolloClient, 
   InMemoryCache, 
@@ -33,9 +33,6 @@ const client = new ApolloClient({
   cache: new InMemoryCache(), 
 });
 
-
-
-
 function App() {
   return (
     <ApolloProvider client={client}>
@@ -43,9 +40,17 @@ function App() {
       <>
         <Navbar />
         <Routes>
-          <Route path='/' component={<SearchBooks/>} />
-          <Route path='/saved' component={<SavedBooks/>} />
-          <Route path='*' element={<h1 className='display-2'>Wrong page!</h1>}
+          <Route 
+            path='/' 
+            element={<SearchBooks />} 
+          />
+          <Route 
+            path='/saved' 
+            element={<SavedBooks />} 
+          />
+          <Route 
+            path='*'
+            element={<h1 className='display-2'>Wrong page!</h1>}
           />
         </Routes>
       </>
